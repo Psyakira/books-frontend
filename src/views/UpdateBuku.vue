@@ -55,7 +55,6 @@
         type="file"
         ref="file"
         id="formFile" />
-    <img src="file" alt="file_cover" style="width: 120px; margin-top: 10px">
   </div>
   <button
       type="button"
