@@ -3,7 +3,7 @@
   <div class="pjm">
     <thead>
     <tr>
-      <th scope="col">No</th>
+      <th scope="col">ID</th>
       <th scope="col">Tanggal Peminjaman</th>
       <th scope="col">Nomor_anggota</th>
       <th scope="col">Status Peminjaman</th>
@@ -12,8 +12,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="(data, idx) in pinjaman">
-      <td>{{ idx + 1 }}</td>
+    <tr v-for="data in pinjaman">
+      <td>{{data.id_peminjaman}}</td>
       <td>{{data.tanggal_peminjaman}}</td>
       <td>{{data.nomor_anggota}}</td>
       <td>{{data.status_peminjaman}}</td>
@@ -21,13 +21,13 @@
       <td>{{data.durasi_keterlambatan}}</td>
       <td>
         <router-link
-            :to="{ name: 'pilihbuku', params: {id: data.id } }"
+            :to="{ name: 'pilihbuku', params: {id_peminjaman: data.id_peminjaman } }"
             class="btn btn-warning me-3"
         >Pilih Buku</router-link>
         <button
             type="button"
             class="btn btn-danger"
-            v-on:click="DeletePeminjam(data.id)">
+            v-on:click="DeletePeminjam(data.id_peminjaman)">
           Delete
         </button>
       </td>
@@ -81,9 +81,9 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const dataPinjaman='http://syakiraspace.my.id/bookstore/selectallpeminjam.php';
-const insertPinjaman='http://syakiraspace.my.id/bookstore/peminjamanbuku.php';
-const deletePinjaman='http://syakiraspace.my.id/bookstore/deletepeminjaman.php';
+const dataPinjaman='https://syakiraspace.my.id/bookstore/selectallpeminjam.php';
+const insertPinjaman='https://syakiraspace.my.id/bookstore/peminjamanbuku.php';
+const deletePinjaman='https://syakiraspace.my.id/bookstore/deletepeminjaman.php';
 
 export default {
   data(){
@@ -137,10 +137,10 @@ export default {
             console.log(err);
           });
     },
-    DeletePeminjam(id) {
+    DeletePeminjam(id_peminjaman) {
       if (confirm('Apakah anda ingin mendelete data ?')) {
         axios
-            .get(deletePinjaman + '?id=' + id)
+            .get(deletePinjaman + '?id_peminjaman=' + id_peminjaman)
             .then((resp) => {
               console.log(resp);
               this.readPinjaman();

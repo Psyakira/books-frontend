@@ -4,13 +4,13 @@
   <input
       class="form-control"
       type="text"
-      v-model="updateIdPeminjaman"
+      v-model="getIdPeminjaman"
       placeholder="Id Peminjaman Master"
       aria-label="default input example" /><br />
   <input
       class="form-control"
       type="text"
-      v-model="updateKodebuku"
+      v-model="insertbuku"
       placeholder="Pilih Kode Buku"
       aria-label="default input example" /><br />
   <button
@@ -19,6 +19,9 @@
       v-on:click="pilihBuku()">
     Pilih Buku
   </button>
+    <router-link to="/detail" class="btn btn-secondary me-5"
+    >Lihat Detail Peminjaman
+    </router-link>
   </div>
 </template>
 
@@ -26,15 +29,15 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const peminjamByid = 'http://syakiraspace.my.id/bookstore/selectpeminjambyid.php';
-const PilihBuku = 'http://syakiraspace.my.id/bookstore/pilihbuku.php';
+const peminjamByid = 'https://syakiraspace.my.id/bookstore/selectpeminjambyid.php';
+const PilihBuku = 'https://syakiraspace.my.id/bookstore/pilihbuku.php';
 
 export default {
   data(){
     return{
       selectPeminjam: ref([]),
-      updateIdPeminjaman: '',
-      updateKodebuku: '',
+      getIdPeminjaman: '',
+      insertbuku: '',
     }
   },
   mounted() {
@@ -42,12 +45,11 @@ export default {
   },
   methods: {
     getData(){
-      axios.get(peminjamByid + '?id_peminjaman_master=' + this.$route.params.id_peminjaman_master)
+      axios.get(peminjamByid + '?id_peminjaman=' + this.$route.params.id_peminjaman)
           .then((resp)=>{
             console.log(resp);
             this.selectPeminjam = resp.data;
-            this.updateIdPeminjaman = this.selectPeminjam.id_peminjaman_master;
-            this.updateKodebuku = this.selectPeminjam.kode_buku;
+            this.getIdPeminjaman = this.selectPeminjam.id_peminjaman;
           })
           .catch((err) => {
             console.log(err);
@@ -56,9 +58,8 @@ export default {
     pilihBuku() {
       let formData = new FormData();
 
-      formData.append('id_peminjaman_master', this.$route.params.id_peminjaman_master);
-      formData.append('kode_buku', this.updateKodebuku);
-
+      formData.append('id_peminjaman', this.$route.params.id_peminjaman);
+      formData.append('kode_buku', this.insertbuku);
 
       axios.post(PilihBuku, formData, {
         headers: {
@@ -67,7 +68,9 @@ export default {
       })
           .then((resp) => {
             console.log(resp.data);
-            this.getData();
+            this.readDetail();
+            this.getIdPeminjaman = '';
+            this.insertbuku = '';
           })
           .catch((err) => {
             console.log(err);

@@ -29,8 +29,8 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const kategoriBykode = 'http://syakiraspace.my.id/bookstore/selectkodekategori.php';
-const updateKategori = 'http://syakiraspace.my.id/bookstore/updatekategoribykode.php';
+const kategoriBykode = 'https://syakiraspace.my.id/bookstore/selectkodekategori.php';
+const updateKategori = 'https://syakiraspace.my.id/bookstore/updatekategoribykode.php';
 
 export default {
   data(){

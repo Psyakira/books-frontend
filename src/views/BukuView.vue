@@ -113,9 +113,9 @@
 import axios from "axios";
 import {ref} from "vue";
 
-const dataKoleksi='http://syakiraspace.my.id/bookstore/selectallbuku.php';
-const insertData='http://syakiraspace.my.id/bookstore/insertbook.php';
-const deleteBuku='http://syakiraspace.my.id/bookstore/deletebukubykode.php';
+const dataKoleksi='https://syakiraspace.my.id/bookstore/selectallbuku.php';
+const insertData='https://syakiraspace.my.id/bookstore/insertbook.php';
+const deleteBuku='https://syakiraspace.my.id/bookstore/deletebukubykode.php';
 
 export default {
   data(){

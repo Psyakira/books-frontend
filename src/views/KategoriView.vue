@@ -57,9 +57,9 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const dataKategori='http://syakiraspace.my.id/bookstore/selectallkategori.php';
-const insertKategori='http://syakiraspace.my.id/bookstore/insertkategori.php';
-const deleteKategori='http://syakiraspace.my.id/bookstore/deletekategoribykode.php';
+const dataKategori='https://syakiraspace.my.id/bookstore/selectallkategori.php';
+const insertKategori='https://syakiraspace.my.id/bookstore/insertkategori.php';
+const deleteKategori='https://syakiraspace.my.id/bookstore/deletekategoribykode.php';
 
 export default {
   data(){

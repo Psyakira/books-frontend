@@ -72,8 +72,8 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const bukuByKode = 'http://syakiraspace.my.id/bookstore/selectkodebuku.php';
-const updateBuku = 'http://syakiraspace.my.id/bookstore/updatebukubykode.php';
+const bukuByKode = 'https://syakiraspace.my.id/bookstore/selectkodebuku.php';
+const updateBuku = 'https://syakiraspace.my.id/bookstore/updatebukubykode.php';
 
 export default {
   data(){

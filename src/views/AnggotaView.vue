@@ -86,9 +86,9 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const dataAnggota='http://syakiraspace.my.id/bookstore/selectallanggota.php';
-const insertAnggota='http://syakiraspace.my.id/bookstore/insertanggota.php';
-const deleteAnggota='http://syakiraspace.my.id/bookstore/deleteanggotabynomor.php';
+const dataAnggota='https://syakiraspace.my.id/bookstore/selectallanggota.php';
+const insertAnggota='https://syakiraspace.my.id/bookstore/insertanggota.php';
+const deleteAnggota='https://syakiraspace.my.id/bookstore/deleteanggotabynomor.php';
 export default {
   data() {
     return {

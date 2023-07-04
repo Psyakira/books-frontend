@@ -53,8 +53,8 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const anggotaByNomor = 'http://syakiraspace.my.id/bookstore/selectnomoranggota.php';
-const updateAnggota = 'http://syakiraspace.my.id/bookstore/updateanggotabynomor.php';
+const anggotaByNomor = 'https://syakiraspace.my.id/bookstore/selectnomoranggota.php';
+const updateAnggota = 'https://syakiraspace.my.id/bookstore/updateanggotabynomor.php';
 
 export default {
   data(){

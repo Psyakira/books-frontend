@@ -8,6 +8,7 @@ import UpdateKategori from "@/views/UpdateKategori.vue";
 import UpdateAnggota from "@/views/UpdateAnggota.vue";
 import PeminjamView from "@/views/PeminjamView.vue";
 import PilihBuku from "@/views/PilihBuku.vue";
+import PeminjamanDetail from "@/views/PeminjamanDetail.vue";
 
 const routes = [
   {
@@ -36,9 +37,14 @@ const routes = [
     component: PeminjamView
   },
   {
-    path: '/pilihbuku/:id',
+    path: '/pilihbuku/:id_peminjaman',
     name: 'pilihbuku',
     component: PilihBuku
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: PeminjamanDetail
   },
   {
     path: '/updatebuku/:kode',
